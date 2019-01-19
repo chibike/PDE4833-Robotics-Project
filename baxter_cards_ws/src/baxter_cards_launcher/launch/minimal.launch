@@ -1,0 +1,10 @@
+<launch>
+    <node name="enable_robot_node" pkg="baxter_tools" type="enable_robot.py" args="-e" />
+    <node name="joint_trajectory_action_server_node" pkg="baxter_interface" type="joint_trajectory_action_server.py" />
+    <node name="untuck_arms_node" pkg="baxter_tools" type="tuck_arms.py" args="-u" />
+    
+    <include file="$(find web_interface)/launch/web_server.launch" />
+    <include file="$(find card_bin_description)/launch/model.launch">
+        <arg name="rviz_config" value="$(find baxter_cards_launcher)/rviz/view_complete.rviz" />
+    </include>
+</launch>

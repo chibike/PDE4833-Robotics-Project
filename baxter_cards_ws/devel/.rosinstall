@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/cards/PDE4833-Robotics-Project/baxter_cards_ws/devel/setup.sh

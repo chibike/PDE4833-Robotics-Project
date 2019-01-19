@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find baxter_gazebo)/launch/baxter_world.launch">
+    </include>
+    
+    <!-- <include file="$(find baxter_cards_launcher)/launch/motion_controller.launch" /> -->
+    <include file="$(find baxter_cards_launcher)/launch/minimal.launch" />
+</launch>

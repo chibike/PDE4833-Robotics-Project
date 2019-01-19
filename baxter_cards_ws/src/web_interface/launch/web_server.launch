@@ -1,0 +1,8 @@
+<launch>
+    <arg name="port" value="8000"/>
+
+	<!-- Launch Web Server -->
+	<node name="web_interface_node" pkg="web_interface" type="server.py" output="screen">
+		<param name="port" type="int" value="$(arg port)"/>
+	</node>
+</launch>

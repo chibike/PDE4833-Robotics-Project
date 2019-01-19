@@ -1,0 +1,22 @@
+<launch>
+    <!-- <arg name="gui" default="true" /> -->
+    <arg name="model" value="$(find card_bin_description)/urdf/model.urdf" />
+    <arg name="rviz_config" default="$(find baxter_cards_launcher)/rviz/view.rviz" />
+
+    <param name="cards_bin_description" textfile="$(find card_bin_description)/urdf/model.urdf" />
+    <!-- <param name="use_gui" value="$(arg gui)"/> -->
+
+    <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    </include> -->
+
+    <group ns="card_bin">
+        <param name="robot_description" textfile="$(find card_bin_description)/urdf/model.urdf" />
+        <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+            <param name="use_tf_static" value="false" />
+        </node>
+    </group>
+
+    <!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find card_bin_description)/urdf/model.urdf -urdf -z 1 -model card_bin" /> -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config)" required="true" />
+</launch>

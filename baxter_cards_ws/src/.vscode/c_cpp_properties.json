@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/cards/baxter_cards_ws/devel/include",
+        "/opt/ros/kinetic/include",
+        "/home/cards/baxter_cards_ws/src/moveit_robots/baxter/baxter_ikfast_left_arm_plugin/include",
+        "/home/cards/baxter_cards_ws/src/moveit_robots/baxter/baxter_ikfast_right_arm_plugin/include",
+        "/home/cards/baxter_cards_ws/src/baxter_simulator/baxter_sim_controllers/include",
+        "/home/cards/baxter_cards_ws/src/baxter_simulator/baxter_sim_hardware/include",
+        "/home/cards/baxter_cards_ws/src/baxter_simulator/baxter_sim_io/include",
+        "/home/cards/baxter_cards_ws/src/baxter_simulator/baxter_sim_kinematics/include",
+        "/home/cards/baxter_cards_ws/src/card_bin_description/include",
+        "/home/cards/baxter_cards_ws/src/motion_controller/include",
+        "/home/cards/baxter_cards_ws/src/web_interface/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}

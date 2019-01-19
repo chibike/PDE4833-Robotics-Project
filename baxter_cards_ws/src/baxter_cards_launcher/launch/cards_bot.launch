@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find baxter_cards_launcher)/launch/minimal.launch" />
+    <include file="$(find baxter_cards_launcher)/launch/motion_controller.launch" />
+</launch>

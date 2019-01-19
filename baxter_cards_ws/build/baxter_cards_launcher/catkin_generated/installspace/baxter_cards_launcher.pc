@@ -1,0 +1,8 @@
+prefix=/home/cards/PDE4833-Robotics-Project/baxter_cards_ws/install
+
+Name: baxter_cards_launcher
+Description: Description of baxter_cards_launcher
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/cards/PDE4833-Robotics-Project/baxter_cards_ws/install/lib 
+Requires: 

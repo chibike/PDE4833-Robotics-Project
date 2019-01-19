@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+
+<robot name="card_bin">
+  <link name="card_bin_object">
+    <visual>
+      <geometry>
+        <box size="0.005 0.315 0.088"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.005 0.315 0.088"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="card_bin_center">
+    <visual>
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <sphere radius="0.005" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="card_bin_center_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_object"/>
+      <child link="card_bin_center"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  
+  <link name="top_left_tag">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="top_left_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="top_left_tag"/>
+      <origin rpy="0 0 0" xyz="0 -0.1425 0.044"/>
+  </joint>
+
+  <link name="top_right_tag">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="top_right_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="top_right_tag"/>
+      <origin rpy="0 0 0" xyz="0 0.1425 0.044"/>
+  </joint>
+
+  <link name="bottom_left_tag">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="bottom_left_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="bottom_left_tag"/>
+      <origin rpy="0 0 0" xyz="0 -0.1425 -0.044"/>
+  </joint>
+
+  <link name="bottom_right_tag">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="bottom_right_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="bottom_right_tag"/>
+      <origin rpy="0 0 0" xyz="0 0.1425 -0.044"/>
+  </joint>
+
+  <link name="pickup_slot_1">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pickup_slot_1_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="pickup_slot_1"/>
+      <origin rpy="0 0 0" xyz="0 -0.0945 0.044"/>
+  </joint>
+
+  <link name="pickup_slot_2">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pickup_slot_2_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="pickup_slot_2"/>
+      <origin rpy="0 0 0" xyz="0 -0.0315 0.044"/>
+  </joint>
+
+  <link name="pickup_slot_3">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pickup_slot_3_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="pickup_slot_3"/>
+      <origin rpy="0 0 0" xyz="0 0.0315 0.044"/>
+  </joint>
+
+  <link name="pickup_slot_4">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pickup_slot_4_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="pickup_slot_4"/>
+      <origin rpy="0 0 0" xyz="0 0.0945 0.044"/>
+  </joint>
+
+  <link name="camera_picture_pose">
+    <visual>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_picture_pose_joint" type="fixed">
+      <axis xyz="1 1 1"/>
+      <parent link="card_bin_center"/>
+      <child link="camera_picture_pose"/>
+      <origin rpy="0 0 0" xyz="-0.10 0 0.1"/>
+  </joint>
+
+  <gazebo>
+      <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+          <jointName>top_left_joint, top_right_joint, bottom_left_joint, bottom_right_joint, pickup_slot_1_joint, pickup_slot_2_joint, pickup_slot_3_joint, pickup_slot_4_joint, camera_picture_pose_joint</jointName>
+      </plugin>
+  </gazebo>
+</robot>

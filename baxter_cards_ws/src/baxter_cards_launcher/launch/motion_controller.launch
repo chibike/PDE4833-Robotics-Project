@@ -1,0 +1,3 @@
+<launch>
+    <node name="baxter_middleman_node" pkg="motion_controller" type="baxter_middleman.py" output="screen" />
+</launch>
