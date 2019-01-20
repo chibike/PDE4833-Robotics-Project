@@ -106,7 +106,7 @@ Ensure that
 2. Your computer is connected to the same network switch/router as Baxter
 3. You have updated the `your_ip` field in baxter_ws/baxter.sh
 
-If using a virtual machine, you should activate NAT Bridge connection for your LAN port
+If using a **virtual machine**, you should activate NAT Bridge connection for your LAN port
 
 ### Launching ROS
 ```
@@ -115,6 +115,9 @@ cd PDE4833-Robotics-Project/baxter_cards_ws
 
 # update your ip address if you haven't done so
 nano baxter.sh
+
+# if running for the first time, run
+catkin_make
 
 # connect to baxter
 ./baxter.sh
