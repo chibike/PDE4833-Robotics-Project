@@ -11,8 +11,6 @@ This script is intended for GOOD and not for EVIL
 Please do not use in any negative context, at least not without prior consent from
 the author of this project.
 
-For information on how this app works check the docs folder
-
 ## Author
 Name: Chibuike Okpaluba
 
@@ -31,7 +29,7 @@ v1.0
 
 ## Hardware Requirements
 1. Baxter
-2. One parallel gripper
+2. Parallel gripper (on Baxter's left arm)
 3. The cards stand used
 4. Classic playing cards with only FOUR suits (Clubs, Diamonds, Hearts, and Spades).
    Special cards are not included.
@@ -143,6 +141,8 @@ python3 app.y
 ```
 
 # Description
+**For information on how this app works check the docs folder**
+
 This repo/project has been split into two sections:
 
 ### Baxter's workspace
