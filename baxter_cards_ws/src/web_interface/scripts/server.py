@@ -21,9 +21,9 @@ current_cards_view = None
 media_access_manager = MediaAccessManager()
 media_access_manager.initialize()
 
-card_search_routine_start_pub  = rospy.Publisher("card_search_routine/start",   Bool, queue_size=10)
-card_search_routine_cancel_pub = rospy.Publisher("card_search_routine/cancel",  Bool, queue_size=10)
-pickup_card_pub = rospy.Publisher("card_search_routine/pickup_card", Int32, queue_size=10)
+card_search_routine_start_pub  = rospy.Publisher("card_search_routine/start",       Bool,  queue_size=10)
+card_search_routine_cancel_pub = rospy.Publisher("card_search_routine/cancel",      Bool,  queue_size=10)
+pickup_card_pub                = rospy.Publisher("card_search_routine/pickup_card", Int32, queue_size=10)
 
 def callback(msg):
     global card_bin_found, current_cards_view
@@ -45,6 +45,11 @@ def cancel_search():
     msg = Bool()
     msg.data = True
     card_search_routine_cancel_pub.publish(msg)
+
+def pickup_card_func(slot_id=0):
+    msg = Int32()
+    msg.data = 5 - slot_id
+    pickup_card_pub.publish(msg)
 
 def search_sim():
     global card_bin_found
@@ -127,11 +132,8 @@ def get_card_bin_status():
     }
     return json.dumps(response)
 
-@app.route("/pickup_card_from_slot/<slot_id>", methods=["GET", "POST", "DELETE"])
+@app.route("/pickup_card_from_slot/<slot_id>")
 def pickup_card_from_slot(slot_id):
-    msg = Int32()
-    msg.data = slot_id
-    pickup_card_pub.publish(msg)
 
     response = {
         "status"     : True,
@@ -139,8 +141,16 @@ def pickup_card_from_slot(slot_id):
         "error_msg"  : "picking up card from slot {}".format(slot_id),
         "slot_id" : slot_id
     }
+    
+    try:
+        slot_id = str(slot_id).decode("utf-8")
+        response["slot_id"] = slot_id
+        pickup_card_func(int(slot_id))
+    except:
+        response["status"] = False
+        response["error_code"] = -1
+        response["error_msg"] = "Could not convert your slot id to a valid number"
 
-    rospy.loginfo("[INFO] received command to pickup your card from slot {}".format(slot_id))
     return json.dumps(response) 
 
 
