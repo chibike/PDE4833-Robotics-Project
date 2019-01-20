@@ -141,7 +141,7 @@ python3 app.y
 ```
 
 # Description
-**For information on how this app works check the docs folder**
+**For information on how this app works check the [docs](https://github.com/chibike/PDE4833-Robotics-Project/tree/master/docs) folder**
 
 This repo/project has been split into two sections:
 
