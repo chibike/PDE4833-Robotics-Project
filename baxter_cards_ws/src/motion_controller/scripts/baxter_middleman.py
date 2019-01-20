@@ -34,8 +34,8 @@ card_search_manager.initialize()
 
 #TODO: add flag to check if the robot is ready
 
-# rospy.loginfo("[INFO] waiting for a few seconds")
-# rospy.sleep(10)
+rospy.loginfo("[INFO] waiting for a few seconds")
+rospy.sleep(10)
 
 rospy.loginfo("[INFO] moving to home pose")
 motion_control_object.move_to_home(which_arm="left", wait=False)

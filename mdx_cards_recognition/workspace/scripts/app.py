@@ -730,10 +730,10 @@ class BaxterApp(QWidget):
         
         card_width = int(im_shape[1] / 4)
         self.card_images["original"] = img.copy()
-        self.card_images["card_01"] = img[:,0:card_width,:]
-        self.card_images["card_02"] = img[:,1*card_width:2*card_width,:]
-        self.card_images["card_03"] = img[:,2*card_width:3*card_width,:]
-        self.card_images["card_04"] = img[:,3*card_width:,:]
+        self.card_images["card_04"] = img[:,0:card_width,:]
+        self.card_images["card_03"] = img[:,1*card_width:2*card_width,:]
+        self.card_images["card_02"] = img[:,2*card_width:3*card_width,:]
+        self.card_images["card_01"] = img[:,3*card_width:,:]
 
         self.render_card_01()
         self.render_card_02()

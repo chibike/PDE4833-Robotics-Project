@@ -48,7 +48,7 @@ def cancel_search():
 
 def pickup_card_func(slot_id=0):
     msg = Int32()
-    msg.data = 5 - slot_id
+    msg.data = slot_id
     pickup_card_pub.publish(msg)
 
 def search_sim():
@@ -116,6 +116,9 @@ def get_current_hand_view():
 @app.route("/get_current_cards_view")
 def get_current_cards_view():
     img = current_cards_view
+    if not card_bin_found:
+        img = media_access_manager.left_hand_cam_image
+        
     if not media_access_manager.is_valid(img):
         img = cv2.imread("{}/img/demo_img.jpg".format(STATIC_PATH))
     

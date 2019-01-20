@@ -8,6 +8,7 @@ import copy
 import math
 import rospy
 import thread
+import random
 import tf2_ros
 import numpy as np
 import cv2.aruco as aruco
@@ -126,7 +127,9 @@ class CardSearchRoutine(object):
         return self.get_average_marker_point(1,3)
     
     def start_search(self):
-        rospy.loginfo("[INFO] may the search begin")
+        # return self.test_scan_location(random.choice(self.camera_scan_poses))
+
+        # rospy.loginfo("[INFO] may the search begin")
 
         # clear previously found data
         self.clear_marker_data()
@@ -160,7 +163,7 @@ class CardSearchRoutine(object):
 
         card_bin_center_transform = Transform()
         card_bin_center_transform.translation.x = left_right_center_point.x
-        card_bin_center_transform.translation.y = left_right_center_point.y - 0.1575
+        card_bin_center_transform.translation.y = left_right_center_point.y - 0.3
         card_bin_center_transform.translation.z = z_position
 
         # rotation = quaternion_from_euler(math.pi / 2.0, 0, marker_xy_line.get_angle())
@@ -226,6 +229,8 @@ class CardSearchRoutine(object):
     
     def scan_location(self, camera_scan_poses, delay=4):
         def __scan_location(pose_as_array):
+            self.goto_card_approach_pose(); rospy.sleep(1)
+
             pose = Pose()
             pose.position.x = pose_as_array[0][0]
             pose.position.y = pose_as_array[0][1]
@@ -247,7 +252,7 @@ class CardSearchRoutine(object):
             self.stop_search_for_markers();
             rospy.loginfo("[INFO] finished scanning")
 
-        for camera_scan_pose in self.camera_scan_poses:
+        for camera_scan_pose in camera_scan_poses:
             __scan_location(camera_scan_pose)
 
             if self.cancel_triggered:
@@ -255,6 +260,18 @@ class CardSearchRoutine(object):
 
         howmany = self.count_markers_found()
         rospy.loginfo("[INFO] found {} markers".format(howmany))
+
+        return howmany
+    
+    def test_scan_location(self, camera_pose):
+        rospy.loginfo("[INFO] testing scan location\n{}\n".format(camera_pose))
+
+        self.clear_marker_data()
+        howmany = self.scan_location([camera_pose])
+        self.process_marker_transforms()
+
+        rospy.loginfo("[INFO] found {} markers".format(howmany))
+        rospy.loginfo("[INFO] processed marker positions:\n{}\n".format(self.processed_marker_positions))
 
         return howmany
     
@@ -321,12 +338,14 @@ class CardSearchRoutine(object):
         rospy.loginfo("[INFO] pickup_pose {} is {}".format(card_id, pickup_pose))
 
         approach_pose = copy.deepcopy(pickup_pose)
+        approach_pose_2 = copy.deepcopy(pickup_pose)
 
         if pickup_pose is None:
             rospy.loginfo("[INFO] cannot pickup card from an invalid position")
             return False
         
         approach_pose.position.z += hover_distance
+        approach_pose_2.position.z += hover_distance / 3.0
 
         rospy.loginfo("[INFO] moving to card approach pose")
         self.goto_card_approach_pose()
@@ -335,9 +354,17 @@ class CardSearchRoutine(object):
         self.motion_control_object.move_to("left", approach_pose, 0.05, True)
         self.motion_control_object.open_gripper(block=True)
 
-        rospy.loginfo("[INFO] moving to object")
-        self.motion_control_object.move_linear("left", approach_pose, pickup_pose, 0.3, 0.04, True)
+        self.motion_control_object.move_to("left", approach_pose_2, 0.02, True)
+
+        pickup_pose.position.z -= hover_distance / 3.0
+        self.motion_control_object.move_to("left", pickup_pose, 0.03, True)
         self.motion_control_object.close_gripper(block=True)
+
+        self.motion_control_object.move_to("left", approach_pose_2, 0.02, True)
+
+        # rospy.loginfo("[INFO] moving to object")
+        # self.motion_control_object.move_linear("left", approach_pose, pickup_pose, 0.3, 0.04, True)
+        # self.motion_control_object.close_gripper(block=True)
 
         rospy.loginfo("[INFO] moving to approach pose")
         self.motion_control_object.move_to("left", approach_pose, 0.03, True)
@@ -375,8 +402,8 @@ class CardSearchRoutine(object):
         def flip_from_image_coord(vector):
             new_vector = copy.deepcopy(vector)
             new_vector[0,0] = copy.deepcopy(vector[0,2])
-            new_vector[0,1] = copy.deepcopy(-1.0 * vector[0,1])
-            new_vector[0,2] = copy.deepcopy(-1.0 * vector[0,0])
+            new_vector[0,1] = copy.deepcopy(-1.0 * vector[0,0])
+            new_vector[0,2] = copy.deepcopy(+1.0 * vector[0,1])
 
             return new_vector
 

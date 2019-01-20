@@ -141,7 +141,7 @@ class MotionController(object):
         }
 
         try:
-            self.transform_stamped = self.tf_buffer.lookup_transform("base", "left_hand_camera_axis", rospy.Time())
+            self.transform_stamped = self.tf_buffer.lookup_transform("base", "left_hand_camera", rospy.Time())
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
             self.transform_stamped = None
             result["msg"] = "could not lookup left camera transform"
