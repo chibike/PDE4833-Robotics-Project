@@ -1,5 +1,5 @@
 
-# MDX PDE4833 CARDS RECOGNITION WITH Baxter - Computer Vision Exercise
+# MDX PDE4833 CARDS RECOGNITION WITH Baxter - Visuomotor Control with Baxter - Computer Vision Exercise
 ## Disclaimer
 This module was written as part of my submission for Middlesex University's 2018-2019 Advanced Robotics assignment.
 
@@ -8,17 +8,7 @@ This script is intended for GOOD and not for EVIL
 Please do not use in any negative context, at least not without prior consent from
 the author of this project.
 
-## Note
 For information on how this app works check the docs folder
-
-## Requirements
-1. Baxter
-2. The card holder
-3. Ubuntu 16.04 or 14.04
-4. Python (python 3 is heavily recommend)
-5. Graphviz, Imutils, Keras, Matplotlib, Numpy, OpenCV, Pillow, Pydot, PyQt5, Scipy, Sklearn, Skimage, Tensorflow
-7. Classic playing cards with only FOUR suits (Clubs, Diamonds, Hearts, and Spades).
-   Special cards are not included.
 
 ## Author
 Name: Chibuike Okpaluba
@@ -31,12 +21,43 @@ Subject: MDX Cards Advanced Robotics Projects 2018
 
 Repo: https://github.com/chibike/mdx_cards_recognition
 
+## Hardware Requirements
+1. Baxter
+2. One parallel gripper
+3. The cards stand used
+4. Classic playing cards with only FOUR suits (Clubs, Diamonds, Hearts, and Spades).
+   Special cards are not included.
+5. Optional - webcam or camera
 
-# Installation (Baxter Software)
-To install Baxter's software suite on ubuntu kinetic please follow the instructions available at https://github.com/chibike/shell_scripts
+## Software Requirements
+1. ROS (see http://wiki.ros.org/kinetic/Installation)
+2. Baxter's software
+3. Ubuntu 16.04 or 14.04
+4. Python3 (required to run the app)
+5. Graphviz, Imutils, Keras, Matplotlib, Numpy, OpenCV, Pillow, Pydot, PyQt5, Scipy, Sklearn, Skimage, Tensorflow
 
+# Installation (Software)
+To install Baxter's software suite on ubuntu kinetic please follow the instructions below:
+```
+# download the installation script
+wget https://raw.githubusercontent.com/chibike/shell_scripts/master/install_baxter_sim_kinetic.sh
 
-# Installation (General Python Packages)
+# change its execution mode
+chmod +x install_baxter_sim_kinetic.sh
+
+# run the file
+./install_baxter_sim_kinetic.sh
+
+# edit your baxter_ws/baxter.sh file
+# use values below
+baxter_hostname="011312P0003.local"
+ros_version="kinetic"
+
+# check your ip address (using ifconfig) and update the line
+your_ip="192.168.XXX.XXX"
+```
+
+To install the required python packages
 ```
 sudo apt-get update
 
