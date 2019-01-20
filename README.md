@@ -21,6 +21,11 @@ Subject: MDX Cards Advanced Robotics Projects 2018
 
 Repo: https://github.com/chibike/mdx_cards_recognition
 
+
+# Version
+v1.0
+
+
 ## Hardware Requirements
 1. Baxter
 2. One parallel gripper
@@ -61,6 +66,7 @@ To install the required python packages
 ```
 sudo apt-get update
 
+# most python packages are no longer supported for python versions < 3.5
 sudo apt-get install python3.5
 sudo apt-get install python3-pip python-pip python3-tk
 
@@ -77,6 +83,57 @@ sudo apt-get install graphviz
 pip3 install --user graphviz==0.5.2
 pip3 install --user pydot-ng==1.0.0
 pip3 install --user pydot
+```
+
+# How to Run
+### Setting Up Baxter
+Ensure that
+1. Baxter is in a suitable environment with a least 2m^2 of space
+2. The emergency button is not pressed
+3. Baxter is connected to a network switch or router
+4. Baxter is connected to a wall socket
+
+If the requirements above are met, then
+1. Proceed to switch Baxter on using the white power button located on its waist
+2. Wait for Baxter to boot
+
+### Setting Up your Computer
+Ensure that
+1. Your computer has the required software
+2. Your computer is connected to the same network switch/router as Baxter
+3. You have updated the `your_ip` field in baxter_ws/baxter.sh
+
+If using a virtual machine, you should activate NAT Bridge connection for your LAN port
+
+### Launching ROS
+```
+# change directory to ros workspace
+cd PDE4833-Robotics-Project/baxter_cards_ws
+
+# update your ip address if you haven't done so
+nano baxter.sh
+
+# connect to baxter
+./baxter.sh
+
+# start the script
+roslaunch baxter_cards_launcher cards_bot.launch
+```
+
+### Launching the User Interface
+
+Please note that the user interface is bundled seperately because it requires python3 and Baxter uses python2
+This app can run on any computer within the same Local Area Network (LAN) as Baxter (or the main computer controlling Baxter)
+
+```
+# change directory to the app's location
+cd PDE4833-Robotics-Project/mdx_cards_recognition/workspace/scripts
+
+# disable ROS's default python paths
+unset PYTHONPATH
+
+# start the user interface
+python3 app.y
 ```
 
 # Description
@@ -105,16 +162,6 @@ The trained models are capable of recognizing the different card suits, and thei
 
 The combination of these techniques (including the thresholding method) improves its overall resistance to noise (light, etc.). However, the proposed system would perform better in a controlled environment.
 
-# Version
-v1.0
-
-# How to Run
-### Using App
-Recommended for running live demonstrations
-
-```
-python workspace/scripts/use_app.py
-```
 
 # Questions and Answers
 For more information please email the author of this project
