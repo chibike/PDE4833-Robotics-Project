@@ -1,5 +1,8 @@
 
-# MDX PDE4833 CARDS RECOGNITION WITH Baxter - Visuomotor Control with Baxter - Computer Vision Exercise
+# MDX PDE4833 CARDS RECOGNITION with BAXTER 
+###### Visuomotor Control with Baxter
+###### Computer Vision Exercise
+
 ## Disclaimer
 This module was written as part of my submission for Middlesex University's 2018-2019 Advanced Robotics assignment.
 
@@ -19,7 +22,7 @@ Email: co607@live.mdx.ac.uk
 
 Subject: MDX Cards Advanced Robotics Projects 2018
 
-Repo: https://github.com/chibike/mdx_cards_recognition
+Repo: https://github.com/chibike/PDE4833-Robotics-Project.git
 
 
 # Version
@@ -94,7 +97,7 @@ Ensure that
 4. Baxter is connected to a wall socket
 
 If the requirements above are met, then
-1. Proceed to switch Baxter on using the white power button located on its waist
+1. Proceed to turn Baxter on using the white power button located on its waist
 2. Wait for Baxter to boot
 
 ### Setting Up your Computer
