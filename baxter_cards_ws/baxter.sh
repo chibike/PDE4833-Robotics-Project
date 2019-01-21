@@ -25,7 +25,7 @@ baxter_hostname="011312P0003.local"
 # your_hostname that this must be resolvable to Baxter.
 #your_ip="192.168.XXX.XXX"
 #your_hostname="baxter_computer.local"
-your_ip="192.168.0.194"
+your_ip="192.168.0.197"
 
 # Specify ROS distribution (e.g. indigo, hydro, etc.)
 ros_version="kinetic"

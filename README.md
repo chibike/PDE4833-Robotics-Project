@@ -137,7 +137,7 @@ cd PDE4833-Robotics-Project/mdx_cards_recognition/workspace/scripts
 unset PYTHONPATH
 
 # start the user interface
-python3 app.y
+python3 app.py
 ```
 
 # Description

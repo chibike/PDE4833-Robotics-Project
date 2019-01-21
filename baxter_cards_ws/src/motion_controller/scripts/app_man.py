@@ -32,7 +32,7 @@ class CardSearchRoutine(object):
         self.should_search_for_aruco_markers = False
 
         # highest verbosity level - print all logs
-        self.verbosity_level = 1.0
+        self.verbosity_level = 0
 
         self.cards_bin_found = False
         self.marker_transforms = {0:[], 1:[], 2:[], 3:[]}
@@ -127,9 +127,7 @@ class CardSearchRoutine(object):
         return self.get_average_marker_point(1,3)
     
     def start_search(self):
-        # return self.test_scan_location(random.choice(self.camera_scan_poses))
-
-        # rospy.loginfo("[INFO] may the search begin")
+        rospy.loginfo("[INFO] may the search begin")
 
         # clear previously found data
         self.clear_marker_data()
