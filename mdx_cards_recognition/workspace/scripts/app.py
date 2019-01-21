@@ -235,7 +235,7 @@ class BaxterApp(QWidget):
         self.__card_bin_status_tracker_timer.setInterval(1000)
         
         self.init_UI()
-        self.select_classifier_cb.setCurrentIndex(1)    # set the default prediction model to a LeNet based cnn
+        self.select_classifier_cb.setCurrentIndex(0)    # set the default prediction model to a LeNet based cnn
         
         self.show()
     
@@ -373,7 +373,7 @@ class BaxterApp(QWidget):
         self.connect_app_btn.clicked.connect(self.connect_app_btn_callback)
 
         self.select_classifier_cb = QComboBox(self)
-        self.select_classifier_cb.addItems(list(self.classifiers.keys()))
+        self.select_classifier_cb.addItems(list(sorted(self.classifiers.keys())))
         self.select_classifier_cb.resize(card_view_width, (btn_height * 2))
         self.select_classifier_cb.move((2 * x_padding) + card_view_width, (y_padding*9) + card_view_height + (btn_height * 2))
         self.select_classifier_cb.currentIndexChanged.connect(self.select_classifier_cb_callback)
