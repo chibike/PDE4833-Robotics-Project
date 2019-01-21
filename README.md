@@ -172,45 +172,27 @@ The section contains the scripts to move baxter around its workspace, as well sc
 
 python scripts written to recognize four of the cards suits in a standard card deck. The programs can receive an input from a camera or folder and reliably identify the suits of the card placed in front of it (one at a time).
 
-The recognition process is based on a preprocess-identify computing approach using several CNNs to correctly classify the presented card.
-
-The CNN models used are:
-1. ShallowNet,
-2. LeNet, and
-3. MiniVGGNet.
-
-During the research for this assignment, a KNN based neural network (nn) was used but has not been included in this version.
-
-These models were created based on the description in the pyimagesearch deeplearning Book by Dr. Adrian Rosebrock.
-
 ### Based on the Rubric
 ###### System Performance
-The overall performance of the program presented is pretty good as it achieves the goal of the task. Baxter can correctly estimate the position of the card tray in the xy-plane (relative to its base). It can also accurately recognize the cards (use LeNet for best results) in the card tray [mdx_cards](https://github.com/chibike/PDE4833-Robotics-Project/blob/master/mdx_cards_recognition/workspace/README.md).
+The overall performance of the program presented is pretty good as it achieves the goal of the task. Baxter can correctly estimate the position of the card tray in the XY-plane (relative to its base). It can also accurately recognize the cards (use LeNet for best results) in the card tray [mdx_cards](https://github.com/chibike/PDE4833-Robotics-Project/blob/master/mdx_cards_recognition/workspace/README.md).
 
 The card tray can hold four cards, therefore the program presented can detect and locate up to four cards.
 
 ###### Problem Analysis and Algorithm
-The algorithm used for locating and classifying the cards, was carefully selected to acheive the best results.
+The algorithm used for locating and classifying the cards was carefully selected to achieve the best results.
 
-The card bin has aruco markers placed on each of its corners, the helps in the calculation of the card tray's pose of even in poor camera conditions. It is more efficient to use markers to estimate the pose of the card tray, rather than the card's suit.
+The card bin has aruco markers placed on each of its corners, the help in the calculation of the card tray's pose of even in poor camera conditions.
 
-Futhermore, the approach to card recognition used acheives a high classification accuracy even in poor/harsh lighting environments.
+It is more efficient to use markers to estimate the pose of the card tray, rather than the card's suit.
 
-The tasks was divided into several blocks (classes, nodes, ...) with each performing a unique task but combined together to create a viable solution.
+Furthermore, the approach to card recognition used achieves a high classification accuracy even in poor/harsh lighting environments.
+
+The tasks were divided into several blocks (classes, nodes, ...) with each performing a unique task but combined together to create a viable solution.
 
 ###### Implementation
 The solution presented shows a correct implementation of the components below:
 1. Sensory processing (from Baxter's camera)
 2. Motor control (includes a well-thought control library written for Baxter which also includes speed control [see: motion_controller.py](https://github.com/chibike/PDE4833-Robotics-Project/blob/master/baxter_cards_ws/src/motion_controller/scripts/motion_controller.py))
-
-###### Code clarity and modularity, documentation
-
-###### Reporting
-
-The trained models are capable of recognizing the different card suits, and their performance was greatly improved by combining several filters using factors such as axes ratios, minimum and maximum area, and the mean probability for the classified contours.
-
-The combination of these techniques (including the thresholding method) improves its overall resistance to noise (light, etc.). However, the proposed system would perform better in a controlled environment.
-
 
 # Questions and Answers
 For more information please email the author of this project
