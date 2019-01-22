@@ -142,7 +142,7 @@ python3 app.py
 
 ### Workspace / Detection Area
 
-The detection region/area is illustrated in the pdf [how_it_works/detection_area.pdf](how_it_works/detection_area.pdf).
+The detection region/area is illustrated in the pdf [docs/detection_area.pdf](docs/detection_area.pdf).
 
 # Description
 This project showcases a program for interacting with objects in a workspace using Baxter's camera and parallel gripper. It also includes an App designed to detect/classify the objects in the workspace.
@@ -153,7 +153,7 @@ This repo/project has been split into two sections:
 1. Baxter control and object interaction,
 2. User interface and object classification.
 
-**For information on how this app works check the [how_it_works](how_it_works) folder**
+**For information on how this app works check the [docs](docs/how_it_works) folder**
 
 ### Baxter Control and Object Interaction
 ### User Interface and Object Classification
