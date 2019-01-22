@@ -86,7 +86,7 @@ pip3 install --user pydot-ng==1.0.0
 pip3 install --user pydot
 ```
 
-# How to Run
+# How to Run/Start this project
 ### Setting Up Baxter
 Ensure that
 1. Baxter is in a suitable environment with a least 2m^2 of space
@@ -143,6 +143,20 @@ python3 app.py
 ### Workspace / Detection Area
 
 The detection region/area is illustrated in the pdf [docs/detection_area.pdf](docs/detection_area.pdf).
+
+### The following directories contain sciprts that are relevant for scrutiny
+1. baxter_cards_ws/src/card_bin_description
+2. baxter_cards_ws/src/baxter_cards_launcher
+3. baxter_cards_ws/src/motion_controller
+4. baxter_cards_ws/src/web_interface
+5. mdx_cards_recognition/workspace/scripts
+
+### Important Scripts (for scrutiny)
+1. baxter_cards_launcher/launch/cards_bot.launch
+2. baxter_cards_ws/src/card_bin_description/urdf/model.urdf
+3. baxter_cards_ws/src/motion_controller/scripts/baxter_middleman.py [Entry Point to solution]
+4. baxter_cards_ws/src/web_interface/scripts/server.py [Used to connect solution with User Interface]
+5. mdx_cards_recognition/workspace/scripts/app.py [User Interface]
 
 # Description
 This project showcases a program for interacting with objects in a workspace using Baxter's camera and parallel gripper. It also includes an App designed to detect/classify the objects in the workspace.
