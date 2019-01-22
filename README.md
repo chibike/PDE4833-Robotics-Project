@@ -126,7 +126,7 @@ roslaunch baxter_cards_launcher cards_bot.launch
 
 ### Launching the User Interface
 
-Please note that the user interface is bundled seperately because it requires python3 and Baxter uses python2
+Please note that the user interface is bundled separately because it requires python3 but Baxter uses python2.
 This app can run on any computer within the same Local Area Network (LAN) as Baxter (or the main computer controlling Baxter)
 
 ```
@@ -140,9 +140,11 @@ unset PYTHONPATH
 python3 app.py
 ```
 
-# Description
-**For information on how this app works check the [docs](https://github.com/chibike/PDE4833-Robotics-Project/tree/master/docs) folder**
+### Workspace / Detection Area
 
+The detection region/area is illustrated in the pdf [how_it_works/detection_area.pdf](how_it_works/detection_area.pdf).
+
+# Description
 This project showcases a program for interacting with objects in a workspace using Baxter's camera and parallel gripper. It also includes an App designed to detect/classify the objects in the workspace.
 
 The object to be detected is a playing cards tray, designed to hold four regular sized cards, and the objects to be manipulated are the cards in the card tray.
@@ -151,10 +153,11 @@ This repo/project has been split into two sections:
 1. Baxter control and object interaction,
 2. User interface and object classification.
 
+**For information on how this app works check the [how_it_works](how_it_works) folder**
+
 ### Baxter Control and Object Interaction
 ### User Interface and Object Classification
 ###### User Interface
-
 
 ###### Object Classification
 This repo/project contains python scripts written to recognize four of the cards suits in a standard card deck. The programs can receive an input from a camera or folder and reliably identify the suits of the card placed in front of it (one at a time).
@@ -168,9 +171,9 @@ The CNN models used are:
 
 These models were created based on the description in the pyimagesearch deeplearning Book by Dr. Adrian Rosebrock.
 
-The section contains the scripts to move baxter around its workspace, as well scripts to search for the card bin using aruco markers.
+The section contains the scripts to move Baxter around its workspace, as well scripts to search for the card bin using aruco markers.
 
-python scripts written to recognize four of the cards suits in a standard card deck. The programs can receive an input from a camera or folder and reliably identify the suits of the card placed in front of it (one at a time).
+python scripts were written to recognize four of the cards suits in a standard card deck. The programs can receive an input from a camera or folder and reliably identify the suits of the card placed in front of it (one at a time).
 
 ### Based on the Rubric
 ###### System Performance
@@ -190,9 +193,9 @@ Furthermore, the approach to card recognition used achieves a high classificatio
 The tasks were divided into several blocks (classes, nodes, ...) with each performing a unique task but combined together to create a viable solution.
 
 ###### Implementation
-The solution presented shows a correct implementation of the components below:
+The solution presented incoporates:
 1. Sensory processing (from Baxter's camera)
-2. Motor control (includes a well-thought control library written for Baxter which also includes speed control [see: motion_controller.py](https://github.com/chibike/PDE4833-Robotics-Project/blob/master/baxter_cards_ws/src/motion_controller/scripts/motion_controller.py))
+2. Motor control (includes a well-thought control library written for Baxter which also includes speed control [see: motion_controller.py](baxter_cards_ws/src/motion_controller/scripts/motion_controller.py))
 
 # Questions and Answers
 For more information please email the author of this project
